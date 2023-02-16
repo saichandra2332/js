@@ -1,0 +1,16 @@
+// Ask the user for attendance details
+const totalClasses = Number(prompt("Enter total number of classes:"));
+const classesAttended = Number(prompt("Enter number of classes attended:"));
+const hasMedicalCause = prompt("Do you have a medical cause? (Y/N)").toUpperCase() === "Y";
+
+// Calculate attendance percentage
+const attendancePercentage = (classesAttended / totalClasses) * 100;
+
+// Check if student is eligible to sit for the exam
+if (hasMedicalCause && attendancePercentage >= 60) {
+  console.log("You are eligible to sit for the exam.");
+} else if (!hasMedicalCause && attendancePercentage >= 75) {
+  console.log("You are eligible to sit for the exam.");
+} else {
+  console.log("Sorry, you are not eligible to sit for the exam.");
+}
