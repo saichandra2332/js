@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #v1,#v2,#v3,#v4,#v5{
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <form>
+       Set password : <input type="text" name="sp" id="sp" value="">
+        <div id="v1"><span style="color: red;">The password must be 15 Characters</span></div>
+        <div id="v2"><span style="color: red;">The password must be one Upper Case letter</span></div>
+        <div id="v3"><span style="color: red;">The password must be have minimum 3 Special Characters</span></div><br><br>
+        <div id="v5"><span style="color: red;">The password must be 3 numbers</span></div><br><br>
+       Confirm password : <input type="text" name="cp" id="cp" value=""><br><br>
+       <div id="v4"><span style="color: red;">The confirm password must be same to the given password</span></div><br>
+       <input type="button" name="sb" id="sb" value="Submit" onclick="but ()"><br>
+    </form>  
+</body>
+<script>
+     function but (){
+            let a=document.getElementById('sp').value
+            console.log(a)
+            let b=document.getElementById('cp').value
+            console.log(b)
+            if(a.length!=15){
+                document.getElementById('v1').style.display="block"
+            }else if(!/[A-Z]{1}/.test(a)){
+                document.getElementById('v2').style.display="block"
+            }else if(!/[!@#$%^&*()<>,./?'';:\|]{3}/.test(a)){
+                document.getElementById('v3').style.display="block"
+            }else if(!/[0-9]{3}/.test(a)){
+                document.getElementById('v5').style.display="block"
+            }else if(a!=b){
+                document.getElementById('v4').style.display="block"
+            }else{
+                alert("The password set successfully")
+            } 
+        }
+</script>
+</html>

@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Draggable Input Example</title>
+  <style>
+   
+    .draggable {
+      width: 200px;
+      height: 30px;
+      cursor: grab;
+      margin: 10px;
+      transition: transform 0.3s ease, background-color 0.3s ease;
+    }
+
+    .draggable:active {
+      cursor: grabbing;
+      background-color: plum;
+    }
+    @keyframes colorAnimation {
+      to {
+        filter: hue-rotate(360deg); /* Rotate through the color spectrum */
+      }
+    }
+
+
+    .dropzone {
+    width: 311px;
+    height: 80px;
+    border: 2px dashed gray;
+    position: absolute;
+    left: 130px;
+    top: 176px;
+    }
+    .red-btn{
+        background-color: lightgreen;
+    width: 91px;
+    height: 30px;
+    border: none;
+    outline: none;
+    border-radius: 11px;
+    position: absolute;
+    top: 286px;
+    left: 229px;
+    font-size: 17px;
+    font-weight: 600;
+    color: black;
+    cursor: pointer;
+}
+.btn:hover{
+    opacity: .6;
+}
+.bg{
+    background: url(pexels-photo-255379.webp);
+    height: 100vh;
+    width: 100%;
+    position: absolute;
+    background-size: cover;
+    filter: blur(5px);
+    z-index: -1;
+    opacity: 0.7;
+    filter: brightness(75%);
+
+}
+body{
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+} 
+* {
+            margin: 0;
+            padding: 0;
+}
+.vertical-line {
+      border-left: 2px solid black; 
+      height: 726px; 
+      padding: 0;
+      position: absolute;
+    left: 830px;
+    top: -53px;
+    }
+    .btns{
+    height: 42px;
+    width: 107px;
+    border: none;
+    outline: none;
+    border-radius: 23px;
+    position: absolute;
+    top: 10px;
+    left: 885px;
+    cursor: pointer;
+    font-size: 19px;
+    font-weight: 500;
+}
+    
+
+  </style>
+</head>
+<body>
+    <div class="bg"></div>
+    <h1 style="color: white;font-size: 46px;font-weight: 600;position: relative;left: 540px;"><span style="color: #53ba00;">V</span>UL<span style="color: #53ba00;">CAN</span>TECHS ONLINE TEST</h1><br><br>
+    <h2 style="color: white;font-size: 40px;font-weight: 600;position: relative;left: 800px;">APPTITUDE</h2>
+    <div style="position: relative;left: 171px;top: 50px;">
+    <label style="font-size: 18px;">Question. 1</label>
+    <input style="width: 384px;height: 48px;" type="text" name="" id=""><br><br>
+  A. <input id="input1" class="draggable" draggable="true" ondragstart="drag(event)" value=""/>
+  B. <input id="input1" class="draggable" draggable="true" ondragstart="drag(event)" value=""/><br>
+  C. <input id="input1" class="draggable" draggable="true" ondragstart="drag(event)" value=""/>
+  D. <input id="input1" class="draggable" draggable="true" ondragstart="drag(event)" value=""/>
+
+
+
+
+  <div style="position: absolute;text-align: center;font-size: 22px;font-weight: 600;" id="dropzone" class="dropzone" ondrop="drop(event)" ondragover="allowDrop(event)">Drop Your Answer here</div>
+
+  <button class="btn red-btn">Accept</button>
+  <div class="vertical-line"></div>
+  <button class="btns">01</button>
+  <button style="height: 42px;width: 107px;border: none;outline: none;border-radius: 23px;position: absolute;top: 10px;left: 1078px;cursor: pointer;font-size: 19px;font-weight: 500;">02</button>
+  <button style="height: 42px;width: 107px;border: none;outline: none;border-radius: 23px;position: absolute;top: 10px;left: 1278px;cursor: pointer;font-size: 19px;font-weight: 500;">03</button>
+  <button style="height: 42px;width: 107px;border: none;outline: none;border-radius: 23px;position: absolute;top: 130px;left: 885px;cursor: pointer;font-size: 19px;font-weight: 500;">04</button>
+  <button style="height: 42px;width: 107px;border: none;outline: none;border-radius: 23px;position: absolute;top: 130px;left: 1078px;cursor: pointer;font-size: 19px;font-weight: 500;">05</button>
+  <button style="height: 42px;width: 107px;border: none;outline: none;border-radius: 23px;position: absolute;top: 130px;left: 1278px;cursor: pointer;font-size: 19px;font-weight: 500;">06</button>
+  <button style="height: 42px;width: 107px;border: none;outline: none;border-radius: 23px;position: absolute;top: 253px;left: 885px;cursor: pointer;font-size: 19px;font-weight: 500;">07</button>
+  <button style="height: 42px;width: 107px;border: none;outline: none;border-radius: 23px;position: absolute;top: 253px;left: 1078px;cursor: pointer;font-size: 19px;font-weight: 500;">08</button>
+  <button style="height: 42px;width: 107px;border: none;outline: none;border-radius: 23px;position: absolute;top: 253px;left: 1278px;cursor: pointer;font-size: 19px;font-weight: 500;">09</button>
+  <button style="height: 42px;width: 107px;border: none;outline: none;border-radius: 23px;position: absolute;top: 383px;left: 1078px;cursor: pointer;font-size: 19px;font-weight: 500;">10</button>
+
+  <script>
+    function drag(event) {
+      event.dataTransfer.setData("text", event.target.id);
+    }
+
+    function allowDrop(event) {
+      event.preventDefault();
+    }
+
+    function drop(event) {
+      event.preventDefault();
+      var data = event.dataTransfer.getData("text");
+      var draggedElement = document.getElementById(data);
+      event.target.appendChild(draggedElement);
+    }
+  </script>
+  </div>
+</body>
+</html>
